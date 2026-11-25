@@ -1,0 +1,91 @@
+
+import math
+
+while True:
+    print("\n==============================")
+    print("     SCIENTIFIC CALCULATOR")
+    print("==============================")
+    print("1. Penjumlahan (+)")
+    print("2. Pengurangan (-)")
+    print("3. Perkalian (*)")
+    print("4. Pembagian (/)")
+    print("5. Pangkat (x^y)")
+    print("6. Akar Kuadrat")
+    print("7. Sin")
+    print("8. Cos")
+    print("9. Tan")
+    print("10. Log")
+    print("11. Ln")
+    print("12. Faktorial")
+    print("13. Pi")
+    print("14. Keluar")
+    print("==============================")
+
+    pilih = input("Pilih operasi: ")
+
+    if pilih == "14":
+        print("Terima kasih!")
+        break
+
+    try:
+        if pilih in ["1", "2", "3", "4", "5"]:
+            a = float(input("Masukkan angka pertama: "))
+            b = float(input("Masukkan angka kedua: "))
+
+            if pilih == "1":
+                hasil = a + b
+            elif pilih == "2":
+                hasil = a - b
+            elif pilih == "3":
+                hasil = a * b
+            elif pilih == "4":
+                hasil = a / b
+            else:
+                hasil = a ** b
+
+        elif pilih == "6":
+            a = float(input("Masukkan angka: "))
+            hasil = math.sqrt(a)
+
+        elif pilih in ["7", "8", "9"]:
+            a = float(input("Masukkan sudut (derajat): "))
+            sudut = math.radians(a)
+
+            if pilih == "7":
+                hasil = math.sin(sudut)
+            elif pilih == "8":
+                hasil = math.cos(sudut)
+            else:
+                hasil = math.tan(sudut)
+
+        elif pilih == "10":
+            a = float(input("Masukkan angka: "))
+            hasil = math.log10(a)
+
+        elif pilih == "11":
+            a = float(input("Masukkan angka: "))
+            hasil = math.log(a)
+
+        elif pilih == "12":
+            a = int(input("Masukkan angka: "))
+            hasil = math.factorial(a)
+
+        elif pilih == "13":
+            hasil = math.pi
+
+        else:
+            print("Pilihan tidak tersedia!")
+            continue
+
+        print("------------------------------")
+        print("Hasil =", hasil)
+        print("------------------------------")
+
+    except ZeroDivisionError:
+        print("Error: Tidak bisa dibagi nol!")
+
+    except ValueError:
+        print("Error: Masukkan angka yang benar!")
+
+    except OverflowError:
+        print("Error: Angka terlalu besar!")
